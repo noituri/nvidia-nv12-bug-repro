@@ -175,12 +175,6 @@ void renderPlane(const GpuContext &ctx, VkRenderingInfo *rendering_info,
                      0, sizeof(float), &time);
   vkCmdDraw(ctx.command_buffer_, 3, 1, 0, 0);
   vkCmdEndRendering(ctx.command_buffer_);
-
-  VkSubmitInfo submit_info{
-      .sType = VK_STRUCTURE_TYPE_SUBMIT_INFO,
-      .commandBufferCount = 1,
-      .pCommandBuffers = &ctx.command_buffer_,
-  };
 }
 
 void convertNV12ToRgba(const GpuContext &ctx) {
